@@ -1,64 +1,79 @@
 package org.example;
 
 public class Radio {
-    private int currentStation;
-    private int currentVolume;
+    public int maxStation = 9;
+    public int minStation = 0;
+    public int maxVolume = 100;
+    public int minVolume = 0;
+    public int currentStation = minStation;
+    public int currentVolume = minVolume;
 
-    public void next() {
-        if (currentStation != 9) {
-            currentStation++;
-        } else {
-            currentStation = 0;
-        }
+    public Radio() {
     }
 
-    public void stepBackRadioStation() { //comment
-
-        if (currentStation != 0) {
-            currentStation--;
-        } else {
-            currentStation = 9;
-        }
-    }
-
-    public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume++;
-        }
-    }
-
-    public void reduceVolume() {
-        if (currentVolume > 0) {
-            currentVolume--;
-        }
+    public Radio(int amountStations) {
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) { // меньше
-            return;
-        }
-        if (currentStation > 9) {
-            return;
-        }
-        this.currentStation = currentStation;
-    }
-
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < minStation) {
             return;
         }
-        if (currentVolume > 100) {
+        if (currentStation > maxStation) {
             return;
         }
-        this.currentVolume = currentVolume;
+
+        this.currentStation = currentStation;
+    }
+
+    public void nextRadioStation() {
+
+        if (currentStation != maxStation) {
+            currentStation++;
+        } else {
+            currentStation = minStation;
+        }
+
+
+    }
+
+    public void stepBackRadioStation() {
+
+        if (currentStation != minStation) {
+            currentStation--;
+        } else {
+            currentStation = maxStation;
+        }
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < minVolume) {
+            return;
+        }
+        if (newCurrentVolume > maxVolume) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+
+    }
+
+    public void increaseVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume++;
+        }
+    }
+
+    public void reduceVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume--;
+        }
     }
 
 }
