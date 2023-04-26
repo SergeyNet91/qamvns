@@ -12,7 +12,7 @@ class RadioTest {
         Radio stat = new Radio(9);
         stat.setCurrentStation(7);
         int expected = 7;
-        int actual = stat.getCurrentStation();
+        int actual = stat.getCurrentStation(); //amount
 
         Assertions.assertEquals(expected, actual);
 

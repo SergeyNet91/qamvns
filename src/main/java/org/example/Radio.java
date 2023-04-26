@@ -5,8 +5,8 @@ public class Radio {
     public int minStation = 0;
     public int maxVolume = 100;
     public int minVolume = 0;
-    public int currentStation = minStation;
-    public int currentVolume = minVolume;
+    public int currentStation = minStation; // min
+    public int currentVolume = minVolume; // min
 
     public Radio() {
     }
